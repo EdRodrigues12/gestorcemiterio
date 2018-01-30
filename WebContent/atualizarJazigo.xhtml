@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- Início da TAG HTML -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+<!-- Início da TAG HEAD -->
+<f:metadata>
+<f:viewAction action="#{jazigoMB.jazigosTodos}"/>
+</f:metadata>
+<h:head>
+	<meta http-equiv="texto-Type" content="text/html; charset=utf-8"/>
+	<link href="style\estilo.css" rel="stylesheet" type="text/css"/>
+	<title>
+		SGC - Atualizar Jazigo
+	</title>
+</h:head>
+<!-- Fim da TAG HEAD -->
+<!-- Início da TAG BODY -->
+<h:body>
+	<!-- Início da DIV CORPO -->
+	<div id="corpo">
+		<!-- Início da DIV CABEÇALHO -->
+		<div id="cabeçalho">
+			<!-- Início da DIV LOGO -->
+			<div id="logo">
+				<h1>
+					<p:graphicImage url="img/bgzin.png" width="960" height="193"/>
+				</h1>
+			</div>
+			<!-- Fim da DIV LOGO -->
+		</div>
+		<!-- Fim da DIV CABEÇALHO -->
+		<!-- Início da DIV MENU -->
+		<div id="menu">
+			<ul>
+				<li>
+					<h:outputLink value="index.xhtml">
+						<f:verbatim>HOME</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuAdmin.xhtml">
+						<f:verbatim>ADMINISTRADOR</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuCola.xhtml">
+						<f:verbatim>COLABORADORES</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuDecla.xhtml">
+						<f:verbatim>DECLARANTE</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuFal.xhtml">
+						<f:verbatim>FALECIDO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuJaz.xhtml">
+						<f:verbatim>JAZIGO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuRela.xhtml">
+						<f:verbatim>RELATÓRIOS</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuVelo.xhtml">
+						<f:verbatim>VELÓRIO</f:verbatim>
+					</h:outputLink>
+				</li>
+			</ul>
+		</div>
+		<!-- Fim da DIV MENU -->
+		<!-- Início da DIV WELCOME -->
+		<div id="welcome">
+			<h2>
+				<p:outputLabel value="Atualizar Jazigo" />
+			</h2>
+			<!-- Início da DIV TEXTO -->
+			<div class="texto">
+				<h:form id="table1">
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	<i id="customheader" class="fa fa-fw fa-car" style="display:none" ></i>
+<!--          <div style="height: 100px; overflow: auto;">  -->
+	<h3 style="margin-top: 0">Jazigos </h3>
+        <p:dataTable id="table" var="jazigo" value="#{jazigoMB.lista2}" reflow="true" rows="5" paginator="true" >
+            
+            <p:column headerText="Código Jazigo">
+                <h:outputText value="#{jazigo.codigo}" />
+            </p:column>
+            
+            <p:column headerText="Rua">
+                <h:outputText value="#{jazigo.rua}" />
+            </p:column>
+ 
+            <p:column headerText="Quadra">
+                <h:outputText value="#{jazigo.quadra}" />
+            </p:column>
+ 
+            <p:column headerText="N°">
+                <h:outputText value="#{jazigo.numero}" />
+            </p:column>
+ 
+            <p:column headerText="Gaveta">
+                <h:outputText value="#{jazigo.gaveta}" />
+            </p:column>
+            
+            <p:column headerText="Terreno">
+                <h:outputText value="#{jazigo.terreno}" />
+            </p:column>
+ 
+            <p:column headerText="Lado">
+                <h:outputText value="#{jazigo.lado}" />
+            </p:column>
+            
+            <p:column headerText="Comprimento">
+                <h:outputText value="#{jazigo.comprimento}" />
+            </p:column>
+ 
+            <p:column headerText="Largura">
+                <h:outputText value="#{jazigo.largura}" />
+            </p:column>
+           
+        </p:dataTable>
+        <br />
+        <br />
+	<h:panelGrid columns="2">
+  	
+    <p:outputLabel value="N° Jazigo :" style="font-weight:bold;"/>
+    <p:inputText  id="txtNumero" 
+    required="true" size="3"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.numero}">
+	</p:inputText>
+  	
+</h:panelGrid>
+<br />
+<h:panelGrid>
+						<h:panelGroup>
+						   <p:commandButton value="Pesquisar"  action="#{jazigoMB.pesquisar}" update=":text"/> 
+							</h:panelGroup>
+					</h:panelGrid>
+</h:form>
+</div>
+</div>
+<div id="welcome">
+			<div class="texto">
+				<h:form id="text">
+				<fieldset> 
+		
+			<label for="Name" style="font-weight: bold;"> Dados Jazigo </label>	
+		<br />
+					
+	<h:panelGrid columns="4" rowClasses="3">
+	<p:outputLabel value="Rua :" style="font-weight:bold;" />
+    <p:inputText  id="txtRua" 
+    required="true" size="50"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.rua}">
+    </p:inputText>
+    <p:outputLabel value="Quadra :" style="font-weight:bold;"/>
+    <p:inputText  id="txtQuadra"
+    maxlength="8" size="9"
+    required="true"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.quadra}"> 
+	</p:inputText>
+	</h:panelGrid>
+	<br/>
+	<h:panelGrid columns="6" rowClasses="3">
+	<p:outputLabel value="Comprimento :" style="font-weight:bold;"/>
+    <p:inputText  id="txtComp" 
+    required="true" size="5"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.comprimento}">
+	</p:inputText>
+	<p:outputLabel value="Largura :" style="font-weight:bold;"/>
+    <p:inputText  id="txtLarg" 
+    required="true" size="5"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.largura}">
+	</p:inputText>
+	 <p:outputLabel value="Terreno :" style="font-weight:bold;"/>
+    <p:inputText  id="txtTerreno"
+    maxlength="8" size="5"
+    required="true"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.terreno}"> 
+	</p:inputText>
+    <p:outputLabel value="Gaveta :" style="font-weight:bold;"/>
+    <p:inputText id="txtGaveta" 
+    required="true" size="5"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.gaveta}">
+	</p:inputText>
+	<p:outputLabel value="Lado: " style="font-weight:bold;"/>
+	<p:selectOneMenu id="cbbLAdo" value="#{jazigoMB.jazigo.lado}"
+							style="comboBox">
+							<f:selectItem itemValue="Direito" itemLabel="Direito" />
+							<f:selectItem itemValue="Esquerdo" itemLabel="Esquerdo" />
+						</p:selectOneMenu>
+    <p:outputLabel value="N° Jazigo :" style="font-weight:bold;"/>
+    <p:inputText  id="txtNumero" 
+    required="true" size="3"
+	requiredMessage="Campo Obrigatorio"
+	value="#{jazigoMB.jazigo.numero}">
+	</p:inputText>
+	
+  	
+</h:panelGrid>
+<br />
+<h:panelGrid>
+						<h:panelGroup>
+						   <p:commandButton value="Atualizar"  action="#{jazigoMB.atualizar}" update=":table1:table, :text" /> 
+							</h:panelGroup>
+					</h:panelGrid>
+<!-- 					<h:panelGrid> -->
+<!-- 						<h:panelGroup> -->
+<!-- 							<p:commandButton value="Botão" action="#{managedBeanQualquer}" /> -->
+<!-- 						</h:panelGroup> -->
+<!-- 					</h:panelGrid> -->
+</fieldset>
+				</h:form>
+				<p/>
+			</div>
+			<!-- Fim da DIV TEXTO -->
+			<!-- Início da DIV RODAPÉ -->
+			<div id="rodapé">
+				<p align="center">
+						2016 © -TODOS OS DIREITOS RESERVADOS POR SHEEP
+						SOFTWARE COMPANY
+				</p>
+			</div>
+			<!-- Fim da DIV RODAPÉ -->
+		</div>
+		<!-- Fim da DIV WELCOME -->
+	</div>
+	<!-- Fim da DIV CORPO -->
+</h:body>
+<!-- Fim da TAG BODY -->
+</html>
+<!-- Fim da TAG HTML -->

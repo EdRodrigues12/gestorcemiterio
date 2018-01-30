@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+     
+    <h:head>
+        <title>Jazigo</title>
+        <style type="text/css">
+            .ui-widget {
+                font-size: 70%;
+                width: 100 ;
+                height:100;
+            }
+        </style>
+    </h:head>
+     
+    <h:body>
+        <i id="customheader" class="fa fa-fw fa-car" style="display:none"></i>
+ 
+        <p:dataTable var="jazigo" value="#{jazigoMB.lista}">
+            
+            <p:column headerText="Código Jazigo">
+                <h:outputText value="#{jazigo.codigo}" />
+            </p:column>
+            
+            <p:column headerText="Rua">
+                <h:outputText value="#{jazigo.rua}" />
+            </p:column>
+ 
+            <p:column headerText="Quadra">
+                <h:outputText value="#{jazigo.quadra}" />
+            </p:column>
+ 
+            <p:column headerText="N°">
+                <h:outputText value="#{jazigo.numero}" />
+            </p:column>
+ 
+            <p:column headerText="Gaveta">
+                <h:outputText value="#{jazigo.gaveta}" />
+            </p:column>
+            
+        </p:dataTable>
+        
+    </h:body>
+     
+</html>

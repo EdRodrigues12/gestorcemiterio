@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DataExumacao" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8279b99d-a4dd-4660-b718-d0d9996df302">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="mes" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT nome , dataExumacao , horaExumacao
+FROM falecido
+WHERE month(dataExumacao) = $P{mes}]]>
+	</queryString>
+	<field name="nome" class="java.lang.String"/>
+	<field name="dataExumacao" class="java.sql.Timestamp"/>
+	<field name="horaExumacao" class="java.sql.Timestamp"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="5d5749c5-042d-496e-8919-9d701ef41d68"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="c3cef341-b55b-4817-a676-1c86fcf0a9ed"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Exumação]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="d6926c75-2b17-418a-bced-ead5eff2cce4"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Exumação por Mês]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-40" y="0" width="595" height="1" forecolor="#666666" uuid="a1c7c976-7fa6-4137-9894-29b6f918efed"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="-20" y="1" width="203" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6127dc0e-f24d-4459-af7c-917e7800018c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome Falecido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="366" y="1" width="209" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0369d19f-f9da-4498-8844-b808605eeec1"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Exumação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="183" y="1" width="183" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="41d5f9c2-d8e1-4d61-aa37-4de7950ca81b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DataExumação]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="4ce144db-f1fc-4b4f-a91b-bd7d2cac42f6"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="3" width="183" height="20" uuid="2c0ef256-f2f6-4136-81d6-3bfe44cd3a25"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="3" width="180" height="20" uuid="394ad7f2-a7e9-4f9a-94b0-852c27e4654f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horaExumacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="3" width="183" height="20" uuid="5f5b5a99-1c5d-490d-863b-46405fa81297"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataExumacao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="163">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="150" width="515" height="13" backcolor="#E6E6E6" uuid="e30b69e0-40c7-41aa-8dd8-65d56c6d5554"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="150" width="40" height="13" backcolor="#E6E6E6" uuid="3f28dce2-8d14-4d9f-bd75-98f61c810935"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="150" width="100" height="13" uuid="77f93b9c-6c91-4a8e-bdd3-def9312f5c83"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

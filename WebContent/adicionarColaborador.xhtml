@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- Início da TAG HTML -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+<!-- Início da TAG HEAD -->
+<h:head>
+	<meta http-equiv="texto-Type" content="text/html; charset=utf-8"/>
+	<link href="style\estilo.css" rel="stylesheet" type="text/css"/>
+	<title>
+		SGC - Adicionar Colaborador
+	</title>
+</h:head>
+<!-- Fim da TAG HEAD -->
+<!-- Início da TAG BODY -->
+<h:body>
+	<!-- Início da DIV CORPO -->
+	<div id="corpo">
+		<!-- Início da DIV CABEÇALHO -->
+		<div id="cabeçalho">
+			<!-- Início da DIV LOGO -->
+			<div id="logo">
+				<h1>
+					<p:graphicImage url="img/bgzin.png" width="960" height="193"/>
+				</h1>
+			</div>
+			<!-- Fim da DIV LOGO -->
+		</div>
+		<!-- Fim da DIV CABEÇALHO -->
+		<!-- Início da DIV MENU -->
+		<div id="menu">
+			<ul>
+				<li>
+					<h:outputLink value="index.xhtml">
+						<f:verbatim>HOME</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuAdmin.xhtml">
+						<f:verbatim>ADMINISTRADOR</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuCola.xhtml">
+						<f:verbatim>COLABORADORES</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuDecla.xhtml">
+						<f:verbatim>DECLARANTE</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuFal.xhtml">
+						<f:verbatim>FALECIDO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuJaz.xhtml">
+						<f:verbatim>JAZIGO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuRela.xhtml">
+						<f:verbatim>RELATÓRIOS</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuVelo.xhtml">
+						<f:verbatim>VELÓRIO</f:verbatim>
+					</h:outputLink>
+				</li>
+			</ul>
+		</div>
+		<!-- Fim da DIV MENU -->
+		<!-- Início da DIV WELCOME -->
+		<div id="welcome">
+			<h2>
+				<p:outputLabel value="Adicionar Colaborador" />
+			</h2>
+			<!-- Início da DIV TEXTO -->
+			<div class="texto">
+				<h:form id="form">
+				
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	<fieldset> 
+		
+			<label for="Name" style="font-weight: bold;"> Dados Colaborador </label>	
+		<br />
+	<h:panelGrid columns="2">
+	<p:outputLabel value="Nome :" style="font-weight:bold; padding-right: 5px; float: right;" />
+    <p:inputText  id="txtNome" size="50"
+    required="true"
+	requiredMessage="Campo Obrigatorio"
+	value="#{colaboradorMB.colaborador.nome}">
+    </p:inputText>
+    <p:outputLabel value="Serviço :" style="font-weight:bold; padding-right: 5px; float: right;"/>
+    <p:inputText  id="txtServiço" size="40"
+    required="true"
+	requiredMessage="Campo Obrigatorio"
+	value="#{colaboradorMB.colaborador.servico}"> 
+	</p:inputText>
+	
+    <p:outputLabel value="Email :" style="font-weight:bold; padding-right: 5px; float: right;" />
+    <p:inputText id="txtEmail" size="30" 
+    required="true"
+	requiredMessage="Campo Obrigatorio"
+	value="#{colaboradorMB.colaborador.email}">
+	<f:validateRegex
+		pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+	
+	</p:inputText>
+	
+    <p:outputLabel value="Telefone :" style="font-weight:bold; padding-right: 5px; float: right;"/>
+	<p:inputMask  id="txtTelefone" mask="(99)9999-9999"
+    maxlength="13" size="14"
+    required="true"
+	requiredMessage="Campo Obrigatorio"
+	value="#{colaboradorMB.colaborador.telefone}">
+	</p:inputMask>
+	
+  	
+</h:panelGrid>
+<br />
+
+<h:panelGrid>
+						<h:panelGroup>
+						   <p:commandButton value="Adicionar"  action="#{colaboradorMB.adicionar}" update=":form"/> 
+						   
+						   
+							</h:panelGroup>
+					</h:panelGrid>
+<!-- 					<h:panelGrid> -->
+<!-- 						<h:panelGroup> -->
+<!-- 							<p:commandButton value="Botão" action="#{managedBeanQualquer}" ajax = "false"/> -->
+<!-- 						</h:panelGroup> -->
+<!-- 					</h:panelGrid> -->
+</fieldset>
+				</h:form>
+				<p/>
+			</div>
+			<!-- Fim da DIV TEXTO -->
+			<!-- Início da DIV RODAPÉ -->
+			<div id="rodapé">
+				<p align="center">
+						2016 © -TODOS OS DIREITOS RESERVADOS POR SHEEP
+						SOFTWARE COMPANY
+				</p>
+			</div>
+			<!-- Fim da DIV RODAPÉ -->
+		</div>
+		<!-- Fim da DIV WELCOME -->
+	</div>
+	<!-- Fim da DIV CORPO -->
+</h:body>
+<!-- Fim da TAG BODY -->
+</html>
+<!-- Fim da TAG HTML -->

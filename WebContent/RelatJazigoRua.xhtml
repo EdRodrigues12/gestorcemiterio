@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+<h:head>
+	
+<meta http-equiv="texto-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Relatório Jazigo</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="style\estilo.css" rel="stylesheet" type="text/css" />
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</h:head>
+
+<h:body>
+
+<div id="corpo">
+
+		<div id="cabeçalho">
+		<div id="menu">	
+<p:megaMenu orientation="#{megaMenuView.orientation}" style="margin-top:20px">
+	<p:submenu label="Menu" icon="ui-icon-menu-1" url="index.xhtml">
+	<p:column>
+	<p:submenu label="Tela principal">
+	<p:menuitem value="Voltar " url="Index.xhtml" />
+	</p:submenu>
+	</p:column>
+	</p:submenu>
+    <p:submenu label="Adicionar" icon="ui-icon-floppy">
+        <p:column>
+            <p:submenu label="Jazigo">
+                <p:menuitem value="Adicionar Jazigo" url="AdicionarJazigo.xhtml" />
+                <p:menuitem value="Adicionar Dono Jazigo" url="AdicionarDonoJazigo.xhtml" />
+            </p:submenu>
+            <p:submenu label="Declarante">
+                <p:menuitem value="Adicionar" url="AdicionarDeclarante.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Falecido">
+                <p:menuitem value="Adicionar" url="AdicionarFalecido.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Velório">
+                <p:menuitem value="Adicionar" url="AdicionarVelorio.xhtml" />
+                
+            </p:submenu>
+            
+            <p:submenu label="Usuário">
+                <p:menuitem value="Adicionar" url="AdicionarUsuario.xhtml" />
+                
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            
+        </p:column>
+ 
+        <p:column>
+            
+            <p:graphicImage value="images/sheep.png" width="86" height="43"/>
+            
+        </p:column>
+    </p:submenu>
+ 
+    <p:submenu label="Pesquisar" icon="ui-icon-search">
+ 
+        <p:column>
+            <p:submenu label="Jazigo">
+                <p:menuitem value="Pesquisar Jazigo" url="PesquisarJazigo.xhtml" />
+                 <p:menuitem value="Pesquisar Dono Jazigo" url="PesquisarDonoJazigo.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Declarante">
+                <p:menuitem value="Pesquisar" url="PesquisarDeclarante.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Falecido">
+                <p:menuitem value="Pesquisar" url="PesquisarFalecido.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Velório">
+                <p:menuitem value="Pesquisar" url="PesquisarVelorio.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Usuário">
+                <p:menuitem value="Pesquisar" url="PesquisarUsuario.xhtml" />
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            
+        </p:column>
+        <p:column>
+            
+        </p:column>
+    </p:submenu>
+ 
+    <p:submenu label="Atualizar" icon="ui-icon-floppy">
+        <p:column>
+            <p:submenu label="Jazigo">
+                <p:menuitem value="Atualizar Jazigo" url="AtualizarJazigo.xhtml" />
+                <p:menuitem value="Atualizar Dono Jazigo" url="AtualizarDonoJazigo.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Declarante">
+                <p:menuitem value="Atualizar" url="AtualizarDeclarante.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Falecido">
+                <p:menuitem value="Atualizar" url="AtualizarFalecido.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Velório">
+                <p:menuitem value="Atualizar" url="AtualizarVelorio.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Usuário">
+                <p:menuitem value="Atualizar" url="AtualizarUsuario.xhtml" />
+            </p:submenu>
+        </p:column>
+    </p:submenu>
+ 
+    <p:submenu label="Deletar" icon="ui-icon-bitbucket">
+        <p:column>
+            <p:submenu label="Jazigo">
+                <p:menuitem value="Deletar Jazigo" url="DeletarJazigo.xhtml" />
+                <p:menuitem value="Deletar Dono Jazigo" url="DeletarDonoJazigo.xhtml" />
+            </p:submenu>
+            <p:submenu label="Declarante">
+                <p:menuitem value="Deletar" url="DeletarDeclarante.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Falecido">
+                <p:menuitem value="Deletar" url="DeletarFalecido.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Velório">
+                <p:menuitem value="Deletar" url="DeletarVelorio.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Usuário">
+                <p:menuitem value="Deletar" url="DeletarUsuario.xhtml" />
+            </p:submenu>
+        </p:column>
+    </p:submenu>
+    
+    <p:submenu label="Relatório" icon="ui-icon-bitbucket">
+        <p:column>
+            <p:submenu label="Data Falecimento">
+                <p:menuitem value="Gerar" url="" />
+                
+            </p:submenu>
+            <p:submenu label="Data Exumação">
+                <p:menuitem value="Gerar" url="" />
+                
+            </p:submenu>
+            <p:submenu label="Jazigo">
+                <p:menuitem value="Gerar" url="RelatJazigoRua.xhtml" />
+                
+            </p:submenu>
+            <p:submenu label="Velório">
+                <p:menuitem value="Gerar" url="" />
+            </p:submenu>
+            
+        </p:column>
+    </p:submenu>
+ 
+    <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+</p:megaMenu>
+</div>
+<div id="welcome">
+			<div id="logo">
+
+			<h2>
+				<h:outputText value="Gerar Relatório" />
+			</h2>
+<div class="texto">
+
+<h:form >
+
+<h:panelGrid columns="2">
+  	
+<!--     <p:outputLabel value="Rua Jazigo :" /> -->
+<!--     <p:inputText  id="rua"  -->
+<!--     required="true" -->
+<!-- 	requiredMessage="Campo Obrigatorio" -->
+<!-- 	value="#{relatorioMB.rua}"> -->
+<!--     </p:inputText> -->
+    
+  	
+</h:panelGrid>
+<br />
+<h:panelGrid>
+						<h:panelGroup>
+						   <p:commandButton value="Gerar"  action="#{relatorioMB.geraJazigo}" ajax = "false" /> 
+							</h:panelGroup>
+					</h:panelGrid>
+
+</h:form>
+</div>
+</div>
+	
+
+
+</div>
+		</div>
+						
+<div class="direito-inferior"><p>
+ <img src="images/sheep.png" width="100" height="53"/>
+ </p>
+ </div>
+</div>
+
+		<div id="rodapé">
+			<p>
+				<center> <h:outputText
+					value="2016 © -TODOS OS DIREITOS RESERVADOS POR SHEEP SOFTWARE COMPANY" />
+				</center>
+			</p>
+		</div>
+</h:body>
+</html>

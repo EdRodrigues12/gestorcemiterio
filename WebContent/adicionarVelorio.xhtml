@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- Início da TAG HTML -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<!-- Início da TAG HEAD -->
+<h:head>
+	<meta http-equiv="texto-Type" content="text/html; charset=utf-8"/>
+	<link href="style\estilo.css" rel="stylesheet" type="text/css"/>
+	<title>
+		SGC - Gerenciar Velório
+	</title>
+	<style type="text/css">
+	.emp1 .fc-event-inner{
+	background: #006600;
+	}
+	.emp2 .fc-event-inner{
+	background: #003399;
+	}
+	</style>
+	<script type="text/javascript" >
+	PrimeFaces.locales['pt_BR'] = {  
+            closeText: 'Fechar',  
+            prevText: 'Anterior',  
+            nextText: 'Próximo',  
+            currentText: 'Começo',  
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],  
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'],  
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],  
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],  
+            dayNamesMin: ['D','S','T','Q','Q','S','S'],  
+            weekHeader: 'Semana',  
+            firstDay: 1,  
+            isRTL: false,  
+            showMonthAfterYear: false,  
+            yearSuffix: '',  
+            timeOnlyTitle: 'Só Horas',  
+            timeText: 'Tempo',  
+            hourText: 'Hora',  
+            minuteText: 'Minuto',  
+            secondText: 'Segundo',  
+            currentText: 'Hoje',  
+            ampm: false,  
+            month: 'Mês',  
+            week: 'Semana',  
+            day: 'Dia',  
+            allDayText : 'Todo Dia'  
+        };
+	</script>
+</h:head>
+<!-- Fim da TAG HEAD -->
+<!-- Início da TAG BODY -->
+<h:body>
+<style type="text/css">
+	.emp1 .fc-event-inner{
+	background: #006600;
+	}
+	.emp2 .fc-event-inner{
+	background: #003399;
+	}
+	</style>
+<p:growl id="messages" showDetail="true" />
+	<!-- Início da DIV CORPO -->
+	<div id="corpo">
+		<!-- Início da DIV CABEÇALHO -->
+		<div id="cabeçalho">
+			<!-- Início da DIV LOGO -->
+			<div id="logo">
+				<h1>
+					<h:graphicImage url="img/bgzin.png" width="960" height="193"/>
+				</h1>
+			</div>
+			<!-- Fim da DIV LOGO -->
+		</div>
+		<!-- Fim da DIV CABEÇALHO -->
+		<!-- Início da DIV MENU -->
+		<div id="menu">
+			<ul>
+				<li>
+					<h:outputLink value="index.xhtml">
+						<f:verbatim>HOME</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuAdmin.xhtml">
+						<f:verbatim>ADMINISTRADOR</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuCola.xhtml">
+						<f:verbatim>COLABORADORES</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuDecla.xhtml">
+						<f:verbatim>DECLARANTE</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuFal.xhtml">
+						<f:verbatim>FALECIDO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuJaz.xhtml">
+						<f:verbatim>JAZIGO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuRela.xhtml">
+						<f:verbatim>RELATÓRIOS</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuVelo.xhtml">
+						<f:verbatim>VELÓRIO</f:verbatim>
+					</h:outputLink>
+				</li>
+			</ul>
+		</div>
+		<!-- Fim da DIV MENU -->
+		<!-- Início da DIV WELCOME -->
+		<div id="welcome">
+			<h2>
+				<h:outputText value="Gerenciar Velório" />
+			</h2>
+			<!-- Início da DIV TEXTO -->
+			<div class="texto">
+			 
+    <p:messages id="messages1" showDetail="true" autoUpdate="true" closable="true" />
+				<h:form id="form">
+	
+   
+       
+    <h:panelGrid columnClasses="value">
+         <h3 style="margin-top: 0">Velórios</h3>
+        <p:schedule id="schedule" value="#{velorioMB.eventModel}" widgetVar="myschedule" timeZone="America/Sao_Paulo" >
+            <p:ajax event="dateSelect" listener="#{velorioMB.novoEvento}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+            <p:ajax event="eventSelect" listener="#{velorioMB.selecionarEvento}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+            <p:ajax event="eventMove" listener="#{velorioMB.eventMove}" update="schedule" />
+            <p:ajax event="eventResize" listener="#{velorioMB.eventResize}" update="schedule" />
+     
+        </p:schedule>
+        
+        </h:panelGrid>
+    
+    <p:dialog widgetVar="eventDialog" header="Velórios" showEffect="clip" hideEffect="clip" modal="true">
+<!--        <p:growl id="messages1" showDetail="true" />  -->
+<!--     <p:messages id="messages" showDetail="true" autoUpdate="true" closable="false" /> -->
+       <h:panelGrid id="eventDetails" columns="2">
+        	<p:outputLabel for="nome" value="Nome Falecido" />
+            <p:inputText id="nome" value="#{velorioMB.velorio.nomeFalecido}" required="true" />
+            
+            <p:outputLabel for="cpf" value="C.P.F Falecido" />
+            <p:inputMask id="cpf" value="#{velorioMB.velorio.cpfFalecido}" mask="999.999.999-99" 
+    		 maxlength="14" required="true" />
+                                   
+            <p:outputLabel for="cpfDecl" value="C.P.F Declarante" />
+            <p:inputMask id="cpfDecl" value="#{velorioMB.velorio.cpfDeclarante}" mask="999.999.999-99" 
+    		 maxlength="14" required="true" />
+            
+            <p:outputLabel for="nomeDec" value="Nome Declarante" />
+            <p:inputText id="nomeDec" value="#{velorioMB.velorio.nomeDeclarante}" required="true" />
+ 
+            <p:outputLabel for="sala" value="Sala:" />
+            <p:inputText id="sala" value="#{velorioMB.velorio.sala}" />
+            
+            <p:outputLabel for="status" value="Status:" />
+            <p:selectBooleanCheckbox id="status" value="#{velorioMB.velorio.status}" required="true" />
+ 
+            <p:outputLabel for="popup" value="Data início:" />
+            <p:calendar id="popup" value="#{velorioMB.velorio.dia}" pattern="dd/MM/yyyy " locale="pt_BR"/>
+            
+            <p:outputLabel for="popup2" value="Data Final:" />
+            <p:calendar id="popup2" value="#{velorioMB.velorio.diaFim}" pattern="dd/MM/yyyy " locale="pt_BR" />
+            
+            <p:outputLabel for="time" value="Hora início:" />
+            <p:calendar id="time" value="#{velorioMB.velorio.horaInicio}" pattern="HH:mm" timeOnly="true" timeZone="America/Sao_Paulo" required="true" />
+            
+            <p:outputLabel for="time2" value="Hora Final:" />
+            <p:calendar id="time2" value="#{velorioMB.velorio.horaFim}" pattern="HH:mm" timeOnly="true" timeZone="America/Sao_Paulo" required="true" />
+ 
+<!--             <p:commandButton type="reset" value="Reset" /> -->
+            <p:commandButton id="addButton" value="Save" actionListener="#{velorioMB.salvar}" oncomplete="PF('myschedule').update();" update=":messages"  />
+        </h:panelGrid>
+    </p:dialog>  
+    
+						   
+</h:form>
+				<p/>
+			</div>
+			<!-- Fim da DIV TEXTO -->
+			<!-- Início da DIV RODAPÉ -->
+			<div id="rodapé">
+				<p align="center">
+						2016 © -TODOS OS DIREITOS RESERVADOS POR SHEEP
+						SOFTWARE COMPANY
+				</p>
+			</div>
+			<!-- Fim da DIV RODAPÉ -->
+		</div>
+		<!-- Fim da DIV WELCOME -->
+	</div>
+	<!-- Fim da DIV CORPO -->
+</h:body>
+<!-- Fim da TAG BODY -->
+</html>
+<!-- Fim da TAG HTML -->

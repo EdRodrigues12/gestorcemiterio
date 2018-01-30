@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="falecidoPorMes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8d871fc-6c51-4fc2-b69e-c670a9f4f548">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="mes" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT cpf , nome , dataFalecimento
+FROM falecido
+WHERE month(dataFalecimento)  = $P{mes}]]>
+	</queryString>
+	<field name="cpf" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="dataFalecimento" class="java.sql.Timestamp"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="73">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="d2008ffb-c730-4a33-8612-b19dd6ec8314"/>
+				<staticText>
+					<reportElement x="20" y="20" width="285" height="43" forecolor="#FFFFFF" uuid="8e07fc0c-c50d-4d4b-a6fe-57d7ccade0dc"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Falecido por Mês]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="59331aaf-d568-4a76-b313-7284ba9e75bc"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Falecido por Mês]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="8fc91b9a-d7f2-4e2a-9a60-18524b5b0593"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="-20" y="0" width="223" height="23" forecolor="#006699" backcolor="#E6E6E6" uuid="1b9869df-2747-4f8d-960f-8e8c66665c8b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF Falecido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="203" y="1" width="183" height="22" forecolor="#006699" backcolor="#E6E6E6" uuid="086e934c-a26a-4b46-87d1-7ba544c0d2bd"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="386" y="1" width="189" height="22" forecolor="#006699" backcolor="#E6E6E6" uuid="0f9b439f-e4df-4000-9af0-ad1faf2aeef6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Falecimento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="555" height="1" uuid="db186dc3-ea10-4928-ba8e-08cb67ae2b36"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="366" y="1" width="189" height="19" uuid="73eaa630-1500-4f3e-8f0e-c9b840c6c549"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataFalecimento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="183" height="20" uuid="481034bb-929e-4af5-adf0-2890977c85a1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="183" y="1" width="183" height="20" uuid="f3516826-d7bc-4298-a7ce-7d8eaa544885"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="200">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="187" width="515" height="13" backcolor="#E6E6E6" uuid="d30ec2d8-1bb5-4dd4-91f1-53cf889d47ab"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="187" width="40" height="13" backcolor="#E6E6E6" uuid="6cec45c8-26e5-4aac-b9cb-982f3886f380"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="187" width="100" height="13" uuid="ce3bc90a-4ebc-4033-b73e-35d6afb80f71"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

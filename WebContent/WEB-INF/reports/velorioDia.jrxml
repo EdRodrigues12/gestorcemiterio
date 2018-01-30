@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="velorioDia" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d44cb885-0098-49cb-bb94-14a4a4ea81fc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="dia" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT nomeFalecido , nomeDeclarante , dia , diaFim
+FROM velorio
+WHERE Day(dia)  = $P{dia}]]>
+	</queryString>
+	<field name="nomeFalecido" class="java.lang.String"/>
+	<field name="nomeDeclarante" class="java.lang.String"/>
+	<field name="dia" class="java.sql.Timestamp"/>
+	<field name="diaFim" class="java.sql.Timestamp"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="8213fb18-b666-46c2-9a3a-bfe3563f45c7"/>
+				<staticText>
+					<reportElement x="20" y="20" width="269" height="43" forecolor="#FFFFFF" uuid="46c536b1-c52b-49fe-8b7a-9dbb97b3f0b4"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Velórios Por Dia]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="637d1c88-d878-4697-979f-dc6f2801ee64"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Velórios por Dia]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="4aa0e705-a5b8-4723-93c7-b3c142139cb4"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="-20" y="0" width="156" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a9ed5c10-adec-40aa-b74d-5cdc3d34de14"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome Falecido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="136" y="0" width="156" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="81229fec-8192-40d0-bb5e-9a93a4e08bf7"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Nome Declarante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="292" y="-1" width="130" height="21" forecolor="#006699" backcolor="#E6E6E6" uuid="67ec8672-5090-493c-8eb6-32c44f62e9eb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="422" y="0" width="153" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aa5b7560-055d-42e0-bf6b-59c0408e339a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dia Fim]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="136" y="0" width="156" height="20" uuid="78f43d44-160f-4c4a-b7a1-b515c6429b08"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeDeclarante}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="292" y="0" width="130" height="21" uuid="74dcecac-8b3b-4dba-b52e-f4db29977763"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dia}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="2" width="136" height="18" uuid="470f7a80-8e71-4390-9463-b968ffffe755"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeFalecido}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="420" y="2" width="130" height="18" uuid="ca6de2a3-1bf8-4524-9895-8465f3c452c9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diaFim}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="194">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="181" width="515" height="13" backcolor="#E6E6E6" uuid="b330c4d5-133b-4e9f-88ac-4177e3d8e9a3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="181" width="40" height="13" backcolor="#E6E6E6" uuid="ca2034a2-89cf-4030-8f28-0f6f2f652148"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="181" width="100" height="13" uuid="b48fc1ed-bd5a-4c73-a661-8d55970ae0a7"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="555" height="1" uuid="5b407d6e-6732-4ab2-86d4-fa6b74322fe4"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

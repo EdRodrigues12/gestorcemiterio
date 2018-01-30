@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- Início da TAG HTML -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+<!-- Início da TAG HEAD -->
+<f:metadata>
+<f:viewAction action="#{jazigoMB.jazigos}"/>
+</f:metadata>
+<h:head>
+
+	<meta http-equiv="texto-Type" content="text/html; charset=utf-8"/>
+	<link href="style\estilo.css" rel="stylesheet" type="text/css"/>
+	<title>
+		SGC - Adicionar Dono Jazigo
+	</title>
+</h:head>
+<!-- Fim da TAG HEAD -->
+<!-- Início da TAG BODY -->
+<h:body>
+	<!-- Início da DIV CORPO -->
+	<div id="corpo">
+		<!-- Início da DIV CABEÇALHO -->
+		<div id="cabeçalho">
+			<!-- Início da DIV LOGO -->
+			<div id="logo">
+				<h1>
+					<p:graphicImage url="img/bgzin.png" width="960" height="193"/>
+				</h1>
+			</div>
+			<!-- Fim da DIV LOGO -->
+		</div>
+		<!-- Fim da DIV CABEÇALHO -->
+		<!-- Início da DIV MENU -->
+		<div id="menu">
+			<ul>
+				<li>
+					<h:outputLink value="index.xhtml">
+						<f:verbatim>HOME</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuAdmin.xhtml">
+						<f:verbatim>ADMINISTRADOR</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuCola.xhtml">
+						<f:verbatim>COLABORADORES</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuDecla.xhtml">
+						<f:verbatim>DECLARANTE</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuFal.xhtml">
+						<f:verbatim>FALECIDO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuJaz.xhtml">
+						<f:verbatim>JAZIGO</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuRela.xhtml">
+						<f:verbatim>RELATÓRIOS</f:verbatim>
+					</h:outputLink>
+				</li>
+				<li>
+					<h:outputLink value="menuVelo.xhtml">
+						<f:verbatim>VELÓRIO</f:verbatim>
+					</h:outputLink>
+				</li>
+			</ul>
+		</div>
+		<!-- Fim da DIV MENU -->
+		<!-- Início da DIV WELCOME -->
+		<div id="welcome">
+			<h2>
+				<p:outputLabel value="Adicionar Dono Jazigo" />
+			</h2>
+			<!-- Início da DIV TEXTO -->
+			<div class="texto">
+				<h:form id="table1">
+				
+				<i id="customheader" class="fa fa-fw fa-car" style="display:none" ></i>
+<!--          <div style="height: 100px; overflow: auto;">  -->
+	<h3 style="margin-top: 0">Jazigos disponíveis</h3>
+        <p:dataTable id="table" var="jazigo" value="#{jazigoMB.lista}" reflow="true" rows="5" paginator="true">
+            
+            <p:column headerText="Código Jazigo">
+                <h:outputText value="#{jazigo.codigo}" />
+            </p:column>
+            
+            <p:column headerText="Rua">
+                <h:outputText value="#{jazigo.rua}" />
+            </p:column>
+ 
+            <p:column headerText="Quadra">
+                <h:outputText value="#{jazigo.quadra}" />
+            </p:column>
+ 
+            <p:column headerText="N°">
+                <h:outputText value="#{jazigo.numero}" />
+            </p:column>
+ 
+            <p:column headerText="Gaveta">
+                <h:outputText value="#{jazigo.gaveta}" />
+            </p:column>
+            
+            <p:column headerText="Terreno">
+                <h:outputText value="#{jazigo.terreno}" />
+            </p:column>
+ 
+            <p:column headerText="Lado">
+                <h:outputText value="#{jazigo.lado}" />
+            </p:column>
+            
+            <p:column headerText="Comprimento">
+                <h:outputText value="#{jazigo.comprimento}" />
+            </p:column>
+ 
+            <p:column headerText="Largura">
+                <h:outputText value="#{jazigo.largura}" />
+            </p:column>
+           
+        </p:dataTable>
+<!--         </div>  -->
+<!-- 	<h:panelGrid columns="2"> -->
+  	
+<!--     <p:outputLabel value="N° do Jazigo :"/> -->
+<!--     <p:inputText  id="txtNumeroA"  -->
+<!-- 	value=""> -->
+<!-- 	</p:inputText> -->
+  	
+<!-- </h:panelGrid> -->
+<!-- <br /> -->
+<!-- <p:panelGrid> -->
+<!-- 						<h:panelGroup> -->
+<!-- 						   <p:commandButton value="Pesquisar Jazigo"  actionListener="" onclick="Enviar1()"/>  -->
+<!-- 							</h:panelGroup> -->
+<!-- 					</p:panelGrid> -->
+					
+</h:form>
+</div>
+</div>
+<div id="welcome">
+
+			<div class="texto">
+				<h:form id="form">
+				<p:messages id="messages1" showDetail="true" autoUpdate="true" closable="true" />
+				<fieldset> 
+		
+			<label for="Name" style="font-weight: bold;"> Dados Dono </label>	
+		<br />
+				<h:panelGrid columns="2">
+	<p:outputLabel value="Código Jazigo :" style="font-weight:bold;"/>
+    <p:inputText  id="txtCod" size="3"
+	value="#{donoMB.dono.codJazigo}">
+    </p:inputText>
+    </h:panelGrid>
+    <br />
+    <h:panelGrid columns="8" rowClasses="4">
+    <p:outputLabel value="CPF :" style="font-weight:bold;" />
+    <p:inputMask id="txtCPF" mask="999.999.999-99" 
+    onBlur="ValidarCPF(txtCPF);" size="13"
+    onKeyPress="MascaraCPF(txtCPF);" maxlength="14"
+    required="true"
+	requiredMessage="Campo Obrigatorio"
+	value="#{donoMB.dono.cpf}">
+	<f:validator validatorId="ValidarCPF"/>
+    </p:inputMask>
+    <p:outputLabel value="Nome :" style="font-weight:bold;"/>
+    <p:inputText  id="txtNome" size="50"
+	value="#{donoMB.dono.nome}"> 
+	</p:inputText>
+    
+    <p:outputLabel value="Telefone :"
+	style="font-weight:bold;"/>
+    <p:inputMask id="txttelefone" size="11" maxlength="13"
+	value="#{donoMB.dono.telefone}"
+	mask="(99)9999-9999">
+	</p:inputMask>   
+</h:panelGrid>
+<br />
+<h:panelGrid id="pnCEP" columns="4" >
+	<p:outputLabel value="CEP :" style="font-weight:bold; padding-right: 5px; float: right;"/>
+	<p:inputMask  id="txtCEP" mask="99999-999"
+    maxlength="9" size="9"
+	value="#{donoMB.cep}">
+	</p:inputMask>
+	<p:commandButton value="Pesquisar" icon="ui-icon-search" 
+                  action="#{donoMB.buscaCEP}" update="frmResult"/> 
+ 
+	</h:panelGrid>
+	
+	<h:panelGrid id="frmResult"  columns="8" rowClasses="3">
+	<p:outputLabel value="Endereço :" style="font-weight:bold; "/>
+    <p:inputText id="txtEndereco" size="40"
+	value="#{donoMB.dono.endereco}">
+	</p:inputText>
+	<p:outputLabel value="N° :" style="font-weight:bold;"/>
+    <p:inputText id="txtN" size="3"
+	value="#{donoMB.dono.numeroD}">
+	</p:inputText>
+	<p:outputLabel value="Complemento :" style="font-weight:bold;"/>
+    <p:inputText id="txtComplemento" 
+	value="#{donoMB.dono.complemento}">
+	</p:inputText>
+	<p:outputLabel value="Bairro :" style="font-weight:bold;"/>
+    <p:inputText id="txtBairro" 
+	value="#{donoMB.dono.bairro}">
+	</p:inputText>
+	<p:outputLabel value="Cidade :"
+	style="font-weight:bold;"/>
+    <p:inputText id="txtCidade" size="40"
+	value="#{donoMB.dono.cidade}">
+	</p:inputText>
+	<p:outputLabel value="UF :"
+	style="font-weight:bold;"/>
+    <p:inputText id="txtUF" size="2" maxlength="2"
+	value="#{donoMB.dono.uf}">
+	</p:inputText>
+	</h:panelGrid>
+<br />
+<h:panelGrid>
+						<h:panelGroup>
+						   <p:commandButton value="Adicionar" actionListener="#{donoMB.adicionar}" action="#{jazigoMB.jazigos}" update=":table1:table, :form" />
+
+							</h:panelGroup>
+					</h:panelGrid>
+<!-- 					<h:panelGrid> -->
+<!-- 						<h:panelGroup> -->
+<!-- 							<p:commandButton value="Botão" action="" /> -->
+<!-- 						</h:panelGroup> -->
+<!-- 					</h:panelGrid> -->
+</fieldset>
+				</h:form>
+				<p/>
+			</div>
+			<!-- Fim da DIV TEXTO -->
+			<!-- Início da DIV RODAPÉ -->
+			<div id="rodapé">
+				<p align="center">
+						2016 © -TODOS OS DIREITOS RESERVADOS POR SHEEP
+						SOFTWARE COMPANY
+				</p>
+			</div>
+			<!-- Fim da DIV RODAPÉ -->
+		</div>
+		<!-- Fim da DIV WELCOME -->
+	</div>
+	<!-- Fim da DIV CORPO -->
+	<script language="JavaScript" type="text/javascript">
+		function Enviar1(){
+window.open('Jazigos.xhtml','Jazigo','scrollbars=yes, menubar=yes, status=yes, resizable=no, width=250px, height=250px, left=10px, top=10px')
+		}
+</script>
+</h:body>
+<!-- Fim da TAG BODY -->
+</html>
+<!-- Fim da TAG HTML -->
